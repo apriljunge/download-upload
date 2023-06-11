@@ -43,6 +43,7 @@ async function run() {
     const resp = await fetch(options.url)
     const buffer = await resp.arrayBuffer()
 
+    console.log(res, Buffer.from(buffer).toString('base64'));
     await octokit.rest.repos.createOrUpdateFileContents({
       ...github.context.repo,
       path: filepath,
